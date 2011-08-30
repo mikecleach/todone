@@ -9,6 +9,8 @@ urlpatterns = patterns('',
      url(r'^todone/$', 'tdn.views.index', name='index'),
     # url(r'^todone/', include('todone.foo.urls')),
 
+	(r'^ajax/', include('ajax.urls'))
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

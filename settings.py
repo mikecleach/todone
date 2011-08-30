@@ -3,6 +3,7 @@ import os,sys
 
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "ajax"))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -120,6 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tdn',
+	'ajax',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
