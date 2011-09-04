@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.views.generic.simple import direct_to_template
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -6,10 +7,10 @@ from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-     url(r'^todone/$', 'tdn.views.index', name='index'),
+    (r'^$', direct_to_template, {'template': 'index.html'}),
+    url(r'^todone/$', 'tdn.views.index', name='index'),
     # url(r'^todone/', include('todone.foo.urls')),
-
-	(r'^ajax/', include('ajax.urls'))
+    url(r'^ajax/', include('ajax.urls')),    
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

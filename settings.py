@@ -1,9 +1,15 @@
 # Django settings for todone project.
 import os,sys
 
+DEBUG = True
+
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "ajax"))
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -103,6 +109,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'todone.urls'
@@ -113,6 +120,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, 'templates'))
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,7 +130,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tdn',
-	'ajax',
+#	'ajax',
+    'debug_toolbar',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
